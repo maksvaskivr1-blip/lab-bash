@@ -6,5 +6,5 @@ if [ $# -eq 0 ]
 	exit 1
 else
 TODAY=$(date +%F)
-echo "Привіт, $1! Сьогодні $TODAY"
+echo "Привіт, $1! Сьогодні $TODAY idi naxui<3"
 fi
