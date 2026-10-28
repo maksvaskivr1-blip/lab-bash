@@ -1,15 +1,12 @@
 #!/bin/bash
-set -euo pipefail
-name="${1:-nginx}"
+set -eou pipefail
+name="$1"
 log() {
-	echo "[ $(date '+%F %T') ] $1"
+	echo "$(date '+%F %T') $1"
 }
-log "Перевіряю статус"
-if systemctl is-active "$name" > /dev/null 2>&1; then
-log "OK: $name працює"
-exit 0
+if systemctl is-active --quiet "$name"; then
+log "$name ОК"
 else
-log "FAIL: $name непрацює"
+log "$name DOWN"
 exit 1
 fi
-
